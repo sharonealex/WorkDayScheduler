@@ -19,31 +19,43 @@ function timeTracker(){
 
         //Based on time of the hour, change background colour to inidicate past present future.
         if(hourBlock < hourNow){
-            $(this).siblings(".description").addClass("past");
-            $(this).siblings(".description").removeClass("present");
-            $(this).siblings(".description").removeClass("future");
+            $(this).children(".description").addClass("past");
+            $(this).children(".description").removeClass("present");
+            $(this).children(".description").removeClass("future");
         }
         else if(hourBlock == hourNow){
-            $(this).siblings(".description").addClass("present");
-            $(this).siblings(".description").removeClass("past");
-            $(this).siblings(".description").removeClass("future");
+            $(this).children(".description").addClass("present");
+            $(this).children(".description").removeClass("past");
+            $(this).children(".description").removeClass("future");
         }
         else {
-            $(this).siblings(".description").addClass("future");
-            $(this).siblings(".description").removeClass("present");
-            $(this).siblings(".description").removeClass("past");
+            $(this).children(".description").addClass("future");
+            $(this).children(".description").removeClass("present");
+            $(this).children(".description").removeClass("past");
         }
     })
 
 }
 
 
-timeTracker();
-
-
 //fetch and display saved tasks from local storage.
+
+function displayTasks(){
+    $("#id")
+}
+
 
 //Function for saving tasks on clicking button event.
 
+$(document).ready(function(){
+    $(".saveBtn").on("click", function(){
+        var task = $(this).siblings(".description").val();
+        var taskTime = $(this).parent().attr("id")
+        localStorage.setItem(taskTime, task);
+    })
+})
+
 //Function to change background colours based on time hours
 
+timeTracker();
+displayTasks();
