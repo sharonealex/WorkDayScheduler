@@ -50,12 +50,12 @@ function displayTasks(){
 $(document).ready(function(){
     $(".saveBtn").on("click", function(){
         var task = $(this).siblings(".description").val();
+        console.log(task);
         var taskTime = $(this).parent().attr("id")
+        console.log(taskTime);
         localStorage.setItem(taskTime, task);
     })
 })
-
-//Function to change background colours based on time hours
 
 timeTracker();
 displayTasks();
